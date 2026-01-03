@@ -5,7 +5,46 @@
   <title>Đặt lịch online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    body { <style>
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.booking-card {
+  background: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease;
+}
+
+button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
       font-family: Arial, sans-serif;
       background: #f2f2f2;
       padding: 20px;
@@ -58,5 +97,7 @@
   </form>
 </div>
 
+
 </body>
+
 </html>
