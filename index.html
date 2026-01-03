@@ -4,133 +4,90 @@
   <meta charset="UTF-8">
   <title>Đặt lịch online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body { 
-body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-}
-
-.booking-card {
-  background: white;
-  padding: 30px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  animation: fadeIn 0.8s ease;
-}
-
-button {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border: none;
-  color: white;
-  padding: 14px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
-
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
     }
+
     .container {
-      max-width: 500px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
+      background: white;
+      padding: 30px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease;
     }
+
     h1 {
       text-align: center;
+      margin-bottom: 20px;
     }
+
     input, select, textarea, button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
+
     button {
-      background: #007bff;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
       border: none;
       cursor: pointer;
       font-size: 16px;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  padding: 20px;
-}
-
-.container {
-  max-width: 500px;
-  margin: auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-}
-
-h1 {
-  text-align: center;
-}
-
-input, select, textarea, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-</style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Đặt lịch hẹn</h1>
+  <div class="container">
+    <h1>Đặt lịch hẹn</h1>
 
-  <form action="https://formspree.io/f/XXXXXXX" method="POST">
-    <input type="text" name="name" placeholder="Họ và tên" required>
-    <input type="tel" name="phone" placeholder="Số điện thoại" required>
-    <input type="email" name="email" placeholder="Email">
-    <input type="date" name="date" required>
+    <form action="https://formspree.io/f/XXXXXXX" method="POST">
+      <input type="text" name="name" placeholder="Họ và tên" required>
+      <input type="tel" name="phone" placeholder="Số điện thoại" required>
+      <input type="email" name="email" placeholder="Email">
+      <input type="date" name="date" required>
 
-    <select name="time" required>
-      <option value="">Chọn giờ</option>
-      <option>08:00 - 09:00</option>
-      <option>09:00 - 10:00</option>
-      <option>10:00 - 11:00</option>
-    </select>
+      <select name="time" required>
+        <option value="">Chọn giờ</option>
+        <option>08:00 - 09:00</option>
+        <option>09:00 - 10:00</option>
+        <option>10:00 - 11:00</option>
+      </select>
 
-    <textarea name="note" placeholder="Ghi chú thêm"></textarea>
+      <textarea name="note" placeholder="Ghi chú thêm"></textarea>
 
-    <button type="submit">Đặt lịch</button>
-  </form>
-</div>
-
+      <button type="submit">Đặt lịch</button>
+    </form>
+  </div>
 
 </body>
-
 </html>
