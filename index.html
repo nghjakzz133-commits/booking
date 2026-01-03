@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt lịch online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Đặt lịch hẹn</h1>
+
+  <form action="https://formspree.io/f/XXXXXXX" method="POST">
+    <input type="text" name="name" placeholder="Họ và tên" required>
+    <input type="tel" name="phone" placeholder="Số điện thoại" required>
+    <input type="email" name="email" placeholder="Email">
+    <input type="date" name="date" required>
+
+    <select name="time" required>
+      <option value="">Chọn giờ</option>
+      <option>08:00 - 09:00</option>
+      <option>09:00 - 10:00</option>
+      <option>10:00 - 11:00</option>
+    </select>
+
+    <textarea name="note" placeholder="Ghi chú thêm"></textarea>
+
+    <button type="submit">Đặt lịch</button>
+  </form>
+</div>
+
+</body>
+</html>
