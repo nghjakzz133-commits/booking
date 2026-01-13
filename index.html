@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
@@ -30,12 +30,13 @@
         <div class="brand-name">Tuấn Kenny</div>
         <div class="brand-tag">Booking Club • Bar • VIP Table</div>
 
-<div class="club-links">
-  <a href="./clubs/empire.html">Empire</a>
-  <a href="./clubs/zion.html">Zion</a>
-  <a href="./clubs/the-wann.html">The WANN</a>
-  <a href="./clubs/aplus.html">Aplus</a>
-</div>
+        <div class="club-links">
+          <a href="./clubs/empire.html">Empire</a>
+          <a href="./clubs/zion.html">Zion</a>
+          <a href="./clubs/the-wann.html">The WANN</a>
+          <a href="./clubs/aplus.html">Aplus</a>
+        </div>
+      </div>
     </div>
 
     <a class="mini-cta" href="tel:0974117771">Gọi ngay</a>
@@ -109,8 +110,8 @@
         <p>Điền thông tin – Tuấn Kenny sẽ liên hệ xác nhận ngay.</p>
       </div>
 
-      <!-- FORM: mở sẵn tin nhắn về Facebook -->
-      <form class="form" action="https://www.facebook.com/share/1AStZhCTGR/?mibextid=wwXIfr" method="GET" target="_blank" rel="noopener">
+      <!-- FORM: gửi thẳng về Zalo -->
+      <form class="form" id="bookingForm">
         <div class="row">
           <div class="field">
             <label>Tên khách</label>
@@ -189,6 +190,31 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("bookingForm");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = form.querySelector('input[name="name"]').value.trim();
+      const phone = form.querySelector('input[name="phone"]').value.trim();
+      const date = form.querySelector('input[name="date"]').value;
+      const people = form.querySelector('input[name="people"]').value.trim();
+      const note = form.querySelector('textarea[name="note"]').value.trim();
+
+      const msg =
+`BOOKING - TUẤN KENNY
+👤 Tên khách: ${name}
+📞 SĐT: ${phone}
+📅 Ngày đi: ${date}
+👥 Số lượng: ${people}
+📝 Ghi chú: ${note || "Không có"}
+
+✅ Vui lòng xác nhận giúp em.`;
+
+      const zaloLink = "https://zalo.me/0974117771?text=" + encodeURIComponent(msg);
+      window.open(zaloLink, "_blank");
+    });
   </script>
 </body>
 </html>
