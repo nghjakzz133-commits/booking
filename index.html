@@ -127,7 +127,27 @@
     font-size: 12.6px;
   }
 }
-</style>
+/* =========================
+   FIX TOPBAR STICKY
+   Giữ cố định header khi scroll
+========================= */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  /* nhìn sang hơn khi dính */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* tăng độ nổi */
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+
+  /* tránh bị dính sát quá */
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+  </style>
 </head>
 
 <body>
