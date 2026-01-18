@@ -14,6 +14,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- ✅ UPDATE: CLUB LINKS UI (không cần css chung) -->
+  <style>
+    /* =========================
+      CLUB LINKS (TOP MENU)
+      Giữ nguyên HTML - chỉ làm đẹp
+    ========================= */
+
+    .club-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    /* Chip luxury */
+    .club-links a{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px 14px;
+      border-radius: 999px;
+
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+
+      text-decoration: none;
+      color: rgba(255,255,255,0.88);
+
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    /* viền glow nhẹ */
+    .club-links a::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,213,140,0.55), rgba(255,255,255,0.08));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .club-links a:hover{
+      transform: translateY(-2px);
+      color: #ffd58c;
+      border-color: rgba(255,213,140,0.35);
+      background: rgba(255,213,140,0.10);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+    }
+
+    .club-links a:hover::before{
+      opacity: 1;
+    }
+
+    /* Mobile: gọn lại */
+    @media (max-width: 420px){
+      .club-links{
+        gap: 8px;
+      }
+      .club-links a{
+        padding: 9px 12px;
+        font-size: 12.5px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -211,6 +291,7 @@
 📝 Ghi chú: ${note || "Không có"}
 
 ✅ Vui lòng xác nhận giúp em.`;
+
 
       const zaloLink = "https://zalo.me/0974117771?chat=" + encodeURIComponent(msg);
       window.open(zaloLink, "_blank");
