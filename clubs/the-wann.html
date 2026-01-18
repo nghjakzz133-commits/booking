@@ -6,6 +6,179 @@
   <title>The WANN | Tuấn Kenny Booking</title>
   <meta name="description" content="The WANN - 51 Bùi Thị Xuân, Quận 1. Đặt bàn nhanh by Tuấn Kenny. VIP Table, combo theo budget, hỗ trợ 24/7." />
   <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <!-- ✅ ADD: Gallery Luxury (chỉ ảnh The WANN) -->
+  <style>
+    .wann-gallery{
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    }
+
+    .wann-gallery-head{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .wann-gallery h2{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .wann-gallery .count{
+      font-size: 12.5px;
+      opacity: 0.75;
+      white-space: nowrap;
+    }
+
+    .wann-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .wann-item{
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.25);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      transform: translateY(0);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      cursor: pointer;
+      aspect-ratio: 4 / 5;
+    }
+
+    .wann-item:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,213,140,0.45);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+    }
+
+    .wann-item img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.02) saturate(1.06);
+      transition: transform .25s ease;
+    }
+
+    .wann-item:hover img{
+      transform: scale(1.06);
+    }
+
+    .wann-item::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.00) 55%,
+        rgba(0,0,0,0.55) 100%
+      );
+      pointer-events:none;
+    }
+
+    .wann-badge{
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(20,12,6,0.95);
+      background: linear-gradient(135deg, rgba(255,213,140,1), rgba(199,155,75,1));
+      box-shadow: 0 10px 22px rgba(255,213,140,0.18);
+    }
+
+    .wann-tip{
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    /* ✅ Lightbox */
+    .wann-lightbox{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 16px;
+    }
+
+    .wann-lightbox.show{
+      display: flex;
+    }
+
+    .wann-lightbox-inner{
+      width: min(980px, 100%);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10,10,14,0.65);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .wann-lightbox-inner img{
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 78vh;
+      object-fit: contain;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .wann-close{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .18s ease, background .18s ease;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .wann-close:hover{
+      transform: scale(1.05);
+      background: rgba(255,213,140,0.12);
+    }
+
+    @media (min-width: 720px){
+      .wann-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="bg"><div class="grain"></div><div class="glow glow-1"></div><div class="glow glow-2"></div></div>
@@ -77,6 +250,18 @@
           </p>
         </div>
       </div>
+
+      <!-- ✅ ADD: Gallery The WANN -->
+      <div class="wann-gallery">
+        <div class="wann-gallery-head">
+          <h2>Hình ảnh The WANN (Luxury)</h2>
+          <div class="count" id="wannCount">0 ảnh</div>
+        </div>
+
+        <div class="wann-grid" id="wannGrid"></div>
+
+        <div class="wann-tip">📌 Bấm vào ảnh để xem lớn.</div>
+      </div>
     </section>
 
     <section class="block">
@@ -112,5 +297,80 @@
       <div class="qr-note">Liên hệ: 0974 117 771 • Zalo: Tuấn Kenny</div>
     </section>
   </main>
+
+  <!-- ✅ Lightbox -->
+  <div class="wann-lightbox" id="wannLightbox">
+    <div class="wann-lightbox-inner">
+      <button class="wann-close" id="wannClose">✕</button>
+      <img id="wannView" src="" alt="The WANN Luxury" />
+    </div>
+  </div>
+
+  <!-- ✅ Script gallery -->
+  <script>
+    // ✅ Danh sách ảnh trong thư mục: assets/img/thewann/
+    // M up ảnh xong thì điền đúng tên file vào đây (có bao nhiêu ảnh thì add bấy nhiêu)
+    const WANN_IMAGES = [
+      "IMG_7996.jpeg",
+      "IMG_7997.jpeg",
+      "IMG_7999.jpeg",
+      "IMG_8001.jpeg",
+      "IMG_8002.jpeg",
+      "IMG_8034.jpeg",
+      "IMG_8036.jpeg",
+      "IMG_8611.jpeg",
+      "IMG_8622.jpeg",
+      "MIN_5939.jpeg"
+    ];
+
+    const grid = document.getElementById("wannGrid");
+    const count = document.getElementById("wannCount");
+    const lightbox = document.getElementById("wannLightbox");
+    const view = document.getElementById("wannView");
+    const closeBtn = document.getElementById("wannClose");
+
+    count.textContent = WANN_IMAGES.length + " ảnh";
+
+    WANN_IMAGES.forEach((file, i) => {
+      const src = "../assets/img/thewann/" + file;
+
+      const item = document.createElement("div");
+      item.className = "wann-item";
+
+      const badge = document.createElement("div");
+      badge.className = "wann-badge";
+      badge.textContent = "Luxury";
+
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "The WANN - " + file;
+      img.loading = "lazy";
+
+      item.appendChild(img);
+      item.appendChild(badge);
+
+      item.addEventListener("click", () => {
+        view.src = src;
+        lightbox.classList.add("show");
+      });
+
+      grid.appendChild(item);
+    });
+
+    function closeLightbox(){
+      lightbox.classList.remove("show");
+      view.src = "";
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (e) => {
+      if(e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeLightbox();
+    });
+  </script>
 </body>
 </html>
