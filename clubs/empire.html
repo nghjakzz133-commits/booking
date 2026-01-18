@@ -320,5 +320,74 @@
       <div class="qr-note">Liên hệ: 0974 117 771 • Zalo: Tuấn Kenny</div>
     </section>
   </main>
+<div class="empire-lightbox" id="empireLightbox">
+  <div class="empire-lightbox-inner">
+    <button class="empire-close" id="empireClose">✕</button>
+    <img id="empireView" src="" alt="Empire" />
+  </div>
+</div>
+
+<script>
+  const EMPIRE_IMAGES = [
+    "IMG_8729.jpeg",
+    "IMG_8731.jpeg",
+    "IMG_8732.jpeg",
+    "IMG_8733.jpeg",
+    "IMG_8734.jpeg",
+    "IMG_8735.jpeg",
+    "IMG_8736.jpeg",
+    "IMG_8737.jpeg",
+    "IMG_8738.jpeg"
+  ];
+
+  const empireGrid = document.getElementById("empireGrid");
+  const empireCount = document.getElementById("empireCount");
+  const empireLightbox = document.getElementById("empireLightbox");
+  const empireView = document.getElementById("empireView");
+  const empireClose = document.getElementById("empireClose");
+
+  empireCount.textContent = EMPIRE_IMAGES.length + " ảnh";
+
+  EMPIRE_IMAGES.forEach((file) => {
+    const src = "../assets/img/empire/" + file;
+
+    const item = document.createElement("div");
+    item.className = "empire-item";
+
+    const badge = document.createElement("div");
+    badge.className = "empire-badge";
+    badge.textContent = "Empire";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Empire - " + file;
+    img.loading = "lazy";
+
+    item.appendChild(img);
+    item.appendChild(badge);
+
+    item.addEventListener("click", () => {
+      empireView.src = src;
+      empireLightbox.classList.add("show");
+    });
+
+    empireGrid.appendChild(item);
+  });
+
+  function closeEmpire(){
+    empireLightbox.classList.remove("show");
+    empireView.src = "";
+  }
+
+  empireClose.addEventListener("click", closeEmpire);
+
+  empireLightbox.addEventListener("click", (e) => {
+    if(e.target === empireLightbox) closeEmpire();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeEmpire();
+  });
+</script>
 </body>
 </html>
