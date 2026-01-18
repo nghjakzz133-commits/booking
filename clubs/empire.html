@@ -19,7 +19,7 @@
       </div>
     </div>
     <a class="mini-cta" href="../index.html">← Về home</a>
- <style>
+
 /* ===== FIX FOOTER CONTACT / QR NOTE ===== */
 .qr-note{
   margin-top: 14px;
@@ -46,7 +46,178 @@
   opacity: 0.9;
   text-decoration: underline !important;
 }
-</style>
+<style>
+/* ===== EMPIRE GALLERY ===== */
+.empire-gallery{
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+}
+
+.empire-gallery-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.empire-gallery h2{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.empire-gallery .count{
+  font-size: 12.5px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.empire-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.empire-item{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  cursor: pointer;
+  aspect-ratio: 4 / 5;
+}
+
+.empire-item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,213,140,0.45);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.55);
+}
+
+.empire-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02) saturate(1.06);
+  transition: transform .25s ease;
+}
+
+.empire-item:hover img{
+  transform: scale(1.06);
+}
+
+.empire-item::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.00) 55%,
+    rgba(0,0,0,0.55) 100%
+  );
+  pointer-events:none;
+}
+
+.empire-badge{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(20,12,6,0.95);
+  background: linear-gradient(135deg, rgba(255,213,140,1), rgba(199,155,75,1));
+  box-shadow: 0 10px 22px rgba(255,213,140,0.18);
+}
+
+.empire-tip{
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* Lightbox */
+.empire-lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 16px;
+}
+
+.empire-lightbox.show{
+  display: flex;
+}
+
+.empire-lightbox-inner{
+  width: min(980px, 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(10,10,14,0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.empire-lightbox-inner img{
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 78vh;
+  object-fit: contain;
+  background: rgba(0,0,0,0.35);
+}
+
+.empire-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, background .18s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.empire-close:hover{
+  transform: scale(1.05);
+  background: rgba(255,213,140,0.12);
+}
+
+@media (min-width: 720px){
+  .empire-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+  </style>
   </header>
 
   <main class="container">
